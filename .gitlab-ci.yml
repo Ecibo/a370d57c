@@ -1,0 +1,14 @@
+image: "golang"
+
+before_script:
+  - chmod +x build_gray.sh
+
+build_gray:
+  stage: build
+  when: manual
+  script:
+    - ./build_gray.sh
+  artifacts:
+    paths: ['binary/']
+    expire_in: 3 day
+    expose_as: 'build result'

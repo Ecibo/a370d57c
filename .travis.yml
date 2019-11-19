@@ -1,0 +1,17 @@
+dist: bionic
+language: go
+go: "1.13.4"
+
+env:
+  global:
+    - SHARE_ARTIFACTS=1
+
+before_script:
+  - chmod +x build_gray.sh
+
+jobs:
+  include:
+    - stage: Build
+      name: "Build gray"
+      script:
+        - ./build_gray.sh
